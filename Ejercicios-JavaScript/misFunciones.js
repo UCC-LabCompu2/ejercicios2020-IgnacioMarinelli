@@ -103,3 +103,25 @@ function calcularDivi() {
     if (num2 != 0)
         document.getElementsByName(elementName: "div_total")[0].innerHTML = num1 / num2;
 }
+
+function cargarWeb() {
+    var cant, unidad, urlComp;
+    cant = document.getElementById(elementid: "distancia").value;
+    unidad = document.getElementsByName(elementName: "unidades")[0].value;
+
+    urlComp = "segundaWeb.html#" + cant + "#" + unidad;
+    window.open(urlComp)
+
+}
+
+function cargarResultado() {
+    var urlComp, can, un;
+
+    urlComp= window.location.href.split(separator: "/")[5];
+
+    cant = urlComp.split(separator: "#")[1]
+    un = urlComp.split(separator: "#")[2]
+
+    document.getElementById(elementid: "dist").value = can + " " + un;
+
+}
