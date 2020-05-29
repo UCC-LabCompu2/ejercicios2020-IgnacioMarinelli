@@ -49,3 +49,13 @@ function convertirgr(id) {
     }
 
 }
+
+function mostrar_ocultar(valorMO) {
+    if(velorMO=="val_mostrar"){
+        document.getElementById(elementid:"divMO").style.display = 'block';
+    else if(valorMO=="val_ocultar"){
+        document.getElementById(elementid:"divMO").style.display = 'none';
+        }
+    }
+
+}
