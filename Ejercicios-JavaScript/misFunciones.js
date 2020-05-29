@@ -59,3 +59,33 @@ function mostrar_ocultar(valorMO) {
     }
 
 }
+
+function calcularSuma() {
+    var num1, num2;
+    num1 = Number(document.getElementsByName(elementName: "sum_num1")[0].value);
+    num2 = Number(document.getElementsByName(elementName: "sum_num2")[0].value);
+    document.getElementsByName(elementName: "sum_total")[0].value = num1 + num2;
+
+}
+
+function calcularResta() {
+    var num1, num2;
+    num1 = Number(document.getElementsByName(elementName: "res_num1")[0].value);
+    num2 = Number(document.getElementsByName(elementName: "res_num2")[0].value);
+    document.getElementsByName(elementName: "res_total")[0].value = num1 - num2;
+}
+
+function calcularMultip() {
+    var num1, num2;
+    num1 = Number(document.getElementsByName(elementName: "mul_num1")[0].value);
+    num2 = Number(document.getElementsByName(elementName: "mul_num2")[0].value);
+    document.getElementsByName(elementName: "mul_total")[0].value = num1 * num2;
+}
+
+function calcularDivi() {
+    var num1, num2;
+    num1 = Number(document.getElementsByName(elementName: "div_num1")[0].value);
+    num2 = Number(document.getElementsByName(elementName: "div_num2")[0].value);
+    if (num2 != 0)
+        document.getElementsByName(elementName: "div_total")[0].value = num1 / num2;
+}
