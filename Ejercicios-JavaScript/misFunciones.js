@@ -52,23 +52,23 @@ function cambiarUnidades(id, value) {
 function convertirgr(id) {
     var grad, rad;
     if (id=="grados"){
-        grad = document.getElementById(elementid:"grados").value;
+        grad = document.getElementById("grados").value;
         rad = (grad*Math.PI)/180
     else if (id=="radianes"){
-            rad = document.getElementById(elementid:"radianes").value;
+            rad = document.getElementById("radianes").value;
             grad = (rad*180)/Math.PI
         }
-        document.getElementById(elementid:"grados").value = grad;
-        document.getElementById(elementid:"radianes").value = rad;
+        document.getElementById("grados").value = grad;
+        document.getElementById("radianes").value = rad;
     }
 
 }
 
 function mostrar_ocultar(valorMO) {
     if(velorMO=="val_mostrar"){
-        document.getElementById(elementid:"divMO").style.display = 'block';
+        document.getElementById("divMO").style.display = 'block';
     else if(valorMO=="val_ocultar"){
-            document.getElementById(elementid:"divMO").style.display = 'none';
+            document.getElementById("divMO").style.display = 'none';
         }
     }
 
@@ -76,38 +76,38 @@ function mostrar_ocultar(valorMO) {
 
 function calcularSuma() {
     var num1, num2;
-    num1 = Number(document.getElementsByName(elementName: "sum_num1")[0].value);
-    num2 = Number(document.getElementsByName(elementName: "sum_num2")[0].value);
-    document.getElementsByName(elementName: "sum_total")[0].innerHTML = num1 + num2;
+    num1 = Number(document.getElementsByName("sum_num1")[0].value);
+    num2 = Number(document.getElementsByName("sum_num2")[0].value);
+    document.getElementsByName("sum_total")[0].innerHTML = num1 + num2;
 
 }
 
 function calcularResta() {
     var num1, num2;
-    num1 = Number(document.getElementsByName(elementName: "res_num1")[0].value);
-    num2 = Number(document.getElementsByName(elementName: "res_num2")[0].value);
-    document.getElementsByName(elementName: "res_total")[0].innerHTML = num1 - num2;
+    num1 = Number(document.getElementsByName("res_num1")[0].value);
+    num2 = Number(document.getElementsByName("res_num2")[0].value);
+    document.getElementsByName("res_total")[0].innerHTML = num1 - num2;
 }
 
 function calcularMultip() {
     var num1, num2;
-    num1 = Number(document.getElementsByName(elementName: "mul_num1")[0].value);
-    num2 = Number(document.getElementsByName(elementName: "mul_num2")[0].value);
-    document.getElementsByName(elementName: "mul_total")[0].innerHTML = num1 * num2;
+    num1 = Number(document.getElementsByName("mul_num1")[0].value);
+    num2 = Number(document.getElementsByName("mul_num2")[0].value);
+    document.getElementsByName("mul_total")[0].innerHTML = num1 * num2;
 }
 
 function calcularDivi() {
     var num1, num2;
-    num1 = Number(document.getElementsByName(elementName: "div_num1")[0].value);
-    num2 = Number(document.getElementsByName(elementName: "div_num2")[0].value);
+    num1 = Number(document.getElementsByName("div_num1")[0].value);
+    num2 = Number(document.getElementsByName("div_num2")[0].value);
     if (num2 != 0)
-        document.getElementsByName(elementName: "div_total")[0].innerHTML = num1 / num2;
+        document.getElementsByName("div_total")[0].innerHTML = num1 / num2;
 }
 
 function cargarWeb() {
     var cant, unidad, urlComp;
-    cant = document.getElementById(elementid: "distancia").value;
-    unidad = document.getElementsByName(elementName: "unidades")[0].value;
+    cant = document.getElementById("distancia").value;
+    unidad = document.getElementsByName("unidades")[0].value;
 
     urlComp = "segundaWeb.html#" + cant + "#" + unidad;
     window.open(urlComp)
@@ -117,11 +117,27 @@ function cargarWeb() {
 function cargarResultado() {
     var urlComp, can, un;
 
-    urlComp= window.location.href.split(separator: "/")[5];
+    urlComp= window.location.href.split("/")[5];
 
-    cant = urlComp.split(separator: "#")[1]
-    un = urlComp.split(separator: "#")[2]
+    cant = urlComp.split("#")[1]
+    un = urlComp.split("#")[2]
+    document.getElementById("dist").value = can + " " + un;
 
-    document.getElementById(elementid: "dist").value = can + " " + un;
+}
+
+function dibujarCirCuad() {
+    var canvas = document.getElementById("myCanvas");
+    var ctx = canvas.getContext("2d");
+    var xMax = canvas.width;
+    var yMax = canvas.height;
+    var margen = 5;
+
+    ctx.fillStyle = "#451648";
+    ctx.fillRect(0 + margen, yMax - 40 - margen, 40, 40);
+
+    ctx.arc(xMax/2, yMax/2, 20, 0, 2*Math.PI);
+    ctx.stroke();
+    ctx.fillStyle = "#866543"
+    ctx.fill();
 
 }
