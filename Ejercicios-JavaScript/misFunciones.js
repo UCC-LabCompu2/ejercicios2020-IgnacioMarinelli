@@ -54,10 +54,9 @@ function convertirgr(id) {
     if (id=="grados"){
         grad = document.getElementById("grados").value;
         rad = (grad*Math.PI)/180
-    else if (id=="radianes"){
-            rad = document.getElementById("radianes").value;
-            grad = (rad*180)/Math.PI
-        }
+    else if (id=="radianes") {
+        rad = document.getElementById("radianes").value;
+        grad = (rad*180)/Math.PI
         document.getElementById("grados").value = grad;
         document.getElementById("radianes").value = rad;
     }
@@ -164,5 +163,70 @@ function limpiarCanvas() {
     var canvas = document.getElementById("canvasAdibujar");
     var ctx = canvas.getContext("2d");
     canvas.width = canvas.width;
+
+}
+
+function dibujarCuadriculado(){
+    var canvas = document.getElementById("myCanvas");
+    var ctx = canvas.getContext("2d");
+
+    var anchoMax = canvas.width;
+    var alturaMax = canvas.height;
+    //Dibujar las lineas horizontales
+    ctx.beginPath();
+    for (var i=0; i < alturaMax){
+        ctx.moveTo(0, 20);
+        ctx.lineTo(anchoMax, i);
+        ctx.strokeStyle = "#d20d0d";
+        ctx.stroke();
+        i = i+20;
+    }
+    ctx.closePath()
+
+    //Dibujar las lineas verticales
+    ctx.beginPath();
+    for (var j=0; j < anchoMax){
+        ctx.moveTo(j, 0);
+        ctx.lineTo(j, alturaMax);
+        ctx.strokeStyle = "#d20d0d";
+        ctx.stroke();
+        j = j+20;
+    }
+    ctx.closePath()
+
+    //Eje X
+    ctx.beginPath();
+    ctx.moveTo(0, alturaMax/2);
+    ctx.lineTo(anchoMax, alturaMax/2);
+    ctx.strokeStyle = "#091776"
+    ctx.stroke();
+    ctx.closePath()
+
+    //Eje Y
+    ctx.beginPath();
+    ctx.moveTo(anchoMax/2, 0);
+    ctx.lineTo(anchoMax/2, alturaMax);
+    ctx.strokeStyle = "#091776"
+    ctx.stroke();
+    ctx.closePath()
+}
+
+
+function dibujarImagen(posX, posY) {
+    var canvas = document.getElementById("myCanvas");
+    var ctx = canvas.getContext("2d");
+
+    console.log(posX,posY);
+    var img = new Image();
+    img.src = "images/auto.png";
+
+    canvas.widht = canvas.width;
+
+    img.onload= function(){
+        ctx.drawImage(img, posX, posY);
+    }
+
+
+}
 
 }
